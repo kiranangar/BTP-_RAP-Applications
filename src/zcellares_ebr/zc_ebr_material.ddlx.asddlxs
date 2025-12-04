@@ -1,0 +1,82 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+@UI.headerInfo: {
+typeName: 'Material',
+typeNamePlural: 'Materials',
+title: {
+type: #STANDARD,
+label: 'Material',
+value: 'material_uuid'
+}
+}
+annotate entity ZC_EBR_MATERIAL with
+{
+
+  @UI.facet: [
+
+      {
+      id: 'MaterialInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Material Overview',
+      position: 10
+    }
+    
+  ]
+
+
+  @UI.hidden: true
+  material_uuid;
+
+
+  @UI.hidden: true
+  ebr_uuid;
+
+  @UI: {
+      lineItem: [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ]
+
+      }
+  @EndUserText.label: 'Material'
+  @Search.defaultSearchElement: true
+  material_id;
+
+  @UI: {
+    lineItem: [ { position: 20, importance: #HIGH } ],
+    identification: [ { position: 20 } ]
+    }
+  @EndUserText.label: 'Description'
+  material_description;
+  @UI: {
+    lineItem: [ { position: 30, importance: #MEDIUM} ],
+    identification: [ { position: 30 } ]
+    }
+  @EndUserText.label: 'Description'
+  quantity;
+  @UI: {
+    lineItem: [ { position: 40, importance: #HIGH } ],
+    identification: [ { position: 40 } ]
+    }
+  @EndUserText.label: null
+  unit_of_measure;
+
+  @UI: {
+    lineItem: [ { position: 50, importance: #HIGH } ],
+    identification: [ { position: 50 } ]
+    }
+  @EndUserText.label: 'Batch'
+  batch;
+  @UI: {
+    lineItem: [ { position: 20, importance: #HIGH } ],
+    identification: [ { position: 20 } ]
+    }
+  @EndUserText.label: 'Storage Location'
+  storage_location;
+  /*    created_at;
+      tenant_id;
+      is_deleted;
+      version;
+      sync_status;*/
+
+
+}

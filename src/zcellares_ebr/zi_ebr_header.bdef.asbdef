@@ -1,0 +1,143 @@
+managed; //implementation in class zbp_i_ebr_header unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_EBR_HEADER alias BatchRecord
+implementation in class zbp_i_ebr_header unique
+persistent table zebr_header
+draft table zebr_header_d
+lock master
+total etag last_changed_at
+authorization master ( instance )
+etag master last_changed_at
+{
+  create ( authorization : global );
+  update;
+  delete;
+  //field ( readonly ) ebr_uuid;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  // Field validations
+  field ( mandatory ) batch_number, product_id, plant;
+  field ( readonly ) ebr_uuid, created_by, created_at, last_changed_by, last_changed_at, version;
+  field ( readonly ) tenant_id, is_deleted, sync_status;
+
+  // Determinations
+  determination set_uuid on modify { create; }
+  determination set_timestamps on modify { create; update; }
+  determination set_tenant on modify { create; }
+  determination set_version on modify { create; update; }
+
+  // Actions
+  action approve result [1] $self;
+  action reject result [1] $self;
+  action complete result [1] $self;
+  action sync_to_cpi result [1] $self;
+
+  // Validations
+  //validation validate_batch_number on save { create; update; }
+  //validation validate_status_transition on save { create; update; }
+  //validation validate_tenant_access on save { create; update; delete; }
+
+  association _Deviations { create; with draft;}
+  association _Materials { create; with draft; }
+  association _ProcessParams { create; with draft; }
+  association _ProductionOrder { create; with draft;}
+  association _QualityResults { create; with draft; }
+  association _Signatures { create; with draft; }
+}
+
+define behavior for ZI_EBR_DEVIATION alias Deviations
+persistent table zebr_deviation
+draft table zebr_deviation_d
+lock dependent by _Header
+authorization dependent by _Header
+//etag master
+{
+  update;
+  delete;
+  field ( readonly ) deviation_uuid, ebr_uuid;
+  association _Header { with draft; }
+}
+
+define behavior for ZI_EBR_MATERIAL alias Material
+persistent table zebr_material
+draft table zebr_material_d
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  field ( readonly )  ebr_uuid;
+  //field ( readonly ) material_uuid;
+  field ( mandatory ) material_id, quantity, unit_of_measure;
+  field ( readonly ) material_uuid, created_at, version;
+  field ( readonly ) tenant_id, is_deleted, sync_status;
+
+  /*determination set_uuid on modify { create; }
+  determination set_version on modify { create; update; }
+  determination set_tenant on modify { create; }
+
+  validation validate_material_exists on save { create; update; }
+*/
+  association _Header{ with draft; }
+}
+
+define behavior for ZI_EBR_PARAMS alias ProcessParameters
+persistent table zebr_params
+draft table zebr_params_d
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) param_uuid, ebr_uuid;
+  association _Header{ with draft; }
+}
+
+define behavior for ZI_EBR_PRODORD alias ProductionOrder
+persistent table zebr_prodord
+draft table zebr_prodord_d
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) prodord_uuid, ebr_uuid;
+  association _Header{ with draft; }
+}
+
+define behavior for ZI_EBR_QUALITY alias QualityInspection
+persistent table zebr_quality
+draft table zebr_quality_d
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) quality_uuid, ebr_uuid;
+  association _Header{ with draft; }
+}
+
+define behavior for ZI_EBR_SIGNATURE alias Signature
+persistent table zebr_signature
+draft table zebr_signature_d
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) signature_uuid, ebr_uuid;
+  association _Header{ with draft; }
+}

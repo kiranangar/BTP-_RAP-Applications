@@ -1,0 +1,85 @@
+@Metadata.layer: #CORE
+
+annotate entity ZC_EBR_DEVIATION
+    with
+
+{
+  @EndUserText.label: 'Deviation Description'
+  @UI.facet: [ { id: 'DeviationInfo',
+                 purpose: #STANDARD,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'Deviation Details',
+                 position: 10 } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.lineItem: [ { position: 10 } ]
+  deviation_description;
+
+  @EndUserText.label: 'Deviation Type'
+  @UI.identification: [ { position: 20 } ]
+  @UI.lineItem: [ { position: 20 } ]
+  deviation_type;
+
+  @EndUserText.label: 'Severity'
+  @UI.identification: [ { position: 30 } ]
+  @UI.lineItem: [ { position: 30 } ]
+  severity;
+
+  @EndUserText.label: 'Reported By'
+  @UI.identification: [ { position: 40 } ]
+  @UI.lineItem: [ { position: 40 } ]
+  reported_by;
+
+  @EndUserText.label: 'Report Date'
+  @UI.identification: [ { position: 50 } ]
+  @UI.lineItem: [ { position: 50 } ]
+  report_date;
+
+  @EndUserText.label: 'Report Time'
+  @UI.identification: [ { position: 60 } ]
+  @UI.lineItem: [ { position: 60 } ]
+  report_time;
+
+  @EndUserText.label: 'Status'
+  @UI.identification: [ { position: 70 } ]
+  @UI.lineItem: [ { position: 70 } ]
+  status;
+
+  @EndUserText.label: 'Resolution'
+  @UI.identification: [ { position: 80 } ]
+  @UI.lineItem: [ { position: 80 } ]
+  resolution;
+
+  @EndUserText.label: 'Resolved By'
+  @UI.identification: [ { position: 90 } ]
+  @UI.lineItem: [ { position: 90 } ]
+  resolved_by;
+
+  @EndUserText.label: 'Resolution Date'
+  @UI.identification: [ { position: 100 } ]
+  @UI.lineItem: [ { position: 100 } ]
+  resolution_date;
+
+  @EndUserText.label: 'Resolution Time'
+  @UI.identification: [ { position: 110 } ]
+  @UI.lineItem: [ { position: 110 } ]
+  resolution_time;
+
+
+  @UI.hidden: true
+  deviation_uuid;
+
+  @UI.hidden: true
+  ebr_uuid;
+
+  @UI.hidden: true
+  tenant_id;
+
+  @UI.hidden: true
+  is_deleted;
+
+  @UI.hidden: true
+  version;
+
+  @UI.hidden: true
+  sync_status;
+}

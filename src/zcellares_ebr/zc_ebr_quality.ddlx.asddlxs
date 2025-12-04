@@ -1,0 +1,81 @@
+@Metadata.layer: #CORE
+annotate entity zc_ebr_quality with
+{
+  @UI.facet: [
+
+  {
+  id: 'QualityInfo',
+  purpose: #STANDARD,
+  type: #IDENTIFICATION_REFERENCE,
+  label: 'Quality Inspection Overview',
+  position: 10
+  }
+
+  ]
+
+  @UI.hidden: true
+  quality_uuid;
+  @UI.hidden: true
+  ebr_uuid;
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @EndUserText.label: 'Inspection Lot'
+  inspection_lot;
+
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @EndUserText.label: 'Characteristic'
+  characteristic;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'QC Result'
+  qc_result;
+
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  @EndUserText.label: 'Target Value'
+  target_value;
+
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  @EndUserText.label: 'Lower Limit'
+  lower_limit;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  @EndUserText.label: 'Upper Limit'
+  upper_limit;
+
+  @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70 }]
+  @EndUserText.label: 'Inspection Date'
+  inspection_date;
+
+  @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80 }]
+  @EndUserText.label: 'Inspection Time'
+  inspection_time;
+
+  @UI.lineItem: [{ position: 90 }]
+  @UI.identification: [{ position: 90 }]
+  @EndUserText.label: 'Inspector'
+  inspector;
+
+  @UI.lineItem: [{ position: 100 }]
+  @UI.identification: [{ position: 100 }]
+  @EndUserText.label: 'Status'
+  status;
+
+
+  @UI.hidden: true
+  tenant_id;
+  @UI.identification: [{ position: 110 }]
+  is_deleted;
+  @UI.hidden: true
+  version;
+  @UI.hidden: true
+  sync_status;
+
+
+}

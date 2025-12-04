@@ -1,0 +1,10 @@
+@EndUserText.label: 'Service Def for EBR App'
+define service Zui_SD_ebr_app {
+  expose ZC_EBR_APP       as BatchRecords;
+  expose ZC_EBR_MATERIAL  as Materials;
+  expose zc_ebr_signature as Signatures;
+  expose ZC_EBR_DEVIATION as Deviations;
+  expose zc_ebr_params    as ProcessParams;
+  expose zc_ebr_prodord   as ProdOrderDetail;
+  expose zc_ebr_quality   as QualityInspection;
+}

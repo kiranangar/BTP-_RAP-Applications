@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "{{appDescription}}",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Electronic Batch Record"
+  },
+  "ui5AppDetails": {
+    "appId": "ebr"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5D15E1F21DFF8071A99A43507C76B9E297034891_TM",
+    "semanticObject": "ZC_EBR_APP",
+    "action": "Create",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5D15E1F21DFF8071A99A43507C76B9E297034891_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Electronic Batch Record"
+      }
+    }
+  ]
+}

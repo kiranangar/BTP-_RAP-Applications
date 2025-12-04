@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "EBR SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "EBR application"
+  },
+  "ui5AppDetails": {
+    "appId": "zebrdemoapp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_E54742E6BB1D8F536A5FDA847CF69E70A85C0CB1_TM",
+    "semanticObject": "zebr_app",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_E54742E6BB1D8F536A5FDA847CF69E70A85C0CB1_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "EBR application"
+      }
+    }
+  ]
+}

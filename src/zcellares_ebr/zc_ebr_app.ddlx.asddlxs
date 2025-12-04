@@ -1,0 +1,109 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: { typeName: 'Electronic Batch Record',
+                  typeNamePlural: 'Electronic Batch Records',
+                  title: { type: #STANDARD, value: 'batch_number' },
+                  description.value: 'product_name' }
+//@Search.searchable: true
+
+annotate entity ZC_EBR_APP with
+
+{
+  @EndUserText.label: 'Batch No#'
+  @UI.facet: [ { id: 'GeneralInfo',
+                 purpose: #STANDARD,
+                 type: #IDENTIFICATION_REFERENCE,
+                 label: 'General Information',
+                 position: 10 },
+               { id: 'Materials',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Materials',
+                 position: 20,
+                 targetElement: '_Materials' },
+               { id: 'ProductionOrder',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Production Order Details',
+                 position: 30,
+                 targetElement: '_ProductionOrder' },
+               { id: 'ProcessParams',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Process Parameters',
+                 position: 40,
+                 targetElement: '_ProcessParams' },
+               { id: 'Quality',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Quality Inspection Results',
+                 position: 50,
+                 targetElement: '_QualityResults' },
+               { id: 'Deviations',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Deviations',
+                 position: 60,
+                 targetElement: '_Deviations' },
+               { id: 'Signatures',
+                 purpose: #STANDARD,
+                 type: #LINEITEM_REFERENCE,
+                 label: 'Electronic Signatures',
+                 position: 70,
+                 targetElement: '_Signatures' } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 10 } ]
+  batch_number;
+
+  @EndUserText.label: 'Product'
+  @UI.identification: [ { position: 20 } ]
+  @UI.lineItem: [ { position: 20, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 20 } ]
+  product_id;
+
+  @EndUserText.label: 'Product Name'
+  @UI.identification: [ { position: 21 } ]
+  @UI.lineItem: [ { position: 21, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 21 } ]
+  product_name;
+
+  @EndUserText.label: 'Prod.Order'
+  @UI.identification: [ { position: 30 } ]
+  @UI.lineItem: [ { position: 30, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 30 } ]
+  production_order;
+
+  @EndUserText.label: 'Plant'
+  @UI.identification: [ { position: 40 } ]
+  @UI.lineItem: [ { position: 40, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 40 } ]
+  plant;
+
+  @EndUserText.label: 'Created Date'
+  @UI.identification: [ { position: 50 } ]
+  @UI.lineItem: [ { position: 50, importance: #MEDIUM } ]
+  creation_date;
+
+  @EndUserText.label: 'Status'
+  @UI.identification: [ { position: 60 } ]
+  @UI.lineItem: [ { position: 60, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 50 } ]
+  status;
+
+  @UI.hidden: true
+  ebr_uuid;
+
+
+  @UI.hidden: true
+  created_by;
+
+  @UI.hidden: true
+  created_at;
+
+  @UI.hidden: true
+  last_changed_by;
+
+  @UI.hidden: true
+  last_changed_at;
+}

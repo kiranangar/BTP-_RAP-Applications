@@ -1,0 +1,72 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZC_EBR_APP alias BatchRecords
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _Deviations { create; with draft; }
+  use association _Materials { create; with draft; }
+  use association _ProcessParams { create; with draft; }
+  use association _ProductionOrder { create; with draft; }
+  use association _QualityResults { create; with draft; }
+  use association _Signatures { create; with draft; }
+
+}
+
+define behavior for ZC_EBR_DEVIATION alias Deviations
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}
+
+define behavior for ZC_EBR_MATERIAL alias Material
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}
+
+define behavior for zc_ebr_params alias ProcessParameters
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}
+
+define behavior for zc_ebr_prodord alias ProcessOrder
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}
+
+define behavior for zc_ebr_quality alias QualityInspection
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}
+
+define behavior for zc_ebr_signature alias Signature
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}

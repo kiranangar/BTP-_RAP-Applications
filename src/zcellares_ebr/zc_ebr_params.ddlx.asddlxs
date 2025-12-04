@@ -1,0 +1,75 @@
+@Metadata.layer: #CORE
+annotate entity zc_ebr_params with
+{
+
+  @UI.facet: [
+
+  {
+  id: 'ParamsInfo',
+  purpose: #STANDARD,
+  type: #IDENTIFICATION_REFERENCE,
+  label: 'Parameters Overview',
+  position: 10
+  }
+
+  ]
+  @UI.hidden: true
+  param_uuid;
+  @UI.hidden: true
+  ebr_uuid;
+
+  @Search.defaultSearchElement: true
+  @UI: {
+  lineItem: [ { position: 10, importance: #HIGH } ],
+  identification: [ { position: 10 } ]
+  }
+  @EndUserText.label: 'Parameter '
+  parameter_name;
+  @UI: {
+  lineItem: [ { position: 20, importance: #HIGH } ],
+  identification: [ { position: 20 } ]
+  }
+  @EndUserText.label: 'Parameter Value'
+  parameter_value;
+  @UI: {
+  lineItem: [ { position: 30, importance: #HIGH } ],
+  identification: [ { position: 30 } ]
+  }
+  @EndUserText.label: null
+  unit_of_measure;
+
+  @UI: {
+  lineItem: [ { position: 40, importance: #HIGH } ],
+  identification: [ { position: 40 } ]
+  }
+  @EndUserText.label: 'Time Stamp'
+  timestamp;
+
+  @UI: {    lineItem:         [ { position: 50, importance: #MEDIUM } ],
+            identification:   [ { position: 50 } ] }
+  @EndUserText.label: 'SourceSystem'
+  source_system;
+
+  @UI: {
+  lineItem: [ { position: 60, importance: #MEDIUM } ],
+  identification: [ { position: 60 } ]
+  }
+  @EndUserText.label: 'Operation Step/ No#'
+  operation_number;
+
+  @UI.hidden: true
+  tenant_id;
+
+  @UI: {
+    lineItem: [ { position: 70, importance: #HIGH } ],
+    identification: [ { position: 70 } ]
+    }
+  @EndUserText.label: 'Is Deleted'
+  is_deleted;
+  @UI.hidden: true
+  version;
+  @UI.hidden: true
+  sync_status;
+
+
+}

@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE
+annotate entity zc_ebr_prodord with
+{
+
+
+  @UI.facet: [
+
+  {
+  id: 'OrderInfo',
+  purpose: #STANDARD,
+  type: #IDENTIFICATION_REFERENCE,
+  label: 'Process Order Details',
+  position: 10
+  }
+
+  ]
+  @UI.hidden: true
+  prodord_uuid;
+  @UI.hidden: true
+  ebr_uuid;
+  @UI: {  lineItem:         [ { position: 10, importance: #MEDIUM } ],
+          identification:   [ { position: 10 } ] }
+  @EndUserText.label: 'Order Type'
+  order_type;
+
+  @UI: {  lineItem:         [ { position: 20, importance: #MEDIUM } ],
+          identification:   [ { position: 20 } ] }
+  @EndUserText.label: 'Planned Start Date'
+
+  planned_start_date;
+  @UI: {  lineItem:         [ { position: 30, importance: #MEDIUM } ],
+          identification:   [ { position: 30 } ] }
+  @EndUserText.label: 'Planned Start Date'
+
+  planned_start_time;
+  @UI: {  lineItem:         [ { position: 40, importance: #MEDIUM } ],
+          identification:   [ { position: 40 } ] }
+  @EndUserText.label: 'Planned End Date'
+  planned_end_date;
+  @UI: {  lineItem:         [ { position: 50, importance: #MEDIUM } ],
+          identification:   [ { position: 50 } ] }
+  @EndUserText.label: 'Planned End Time'
+  planned_end_time;
+  @UI: {  lineItem:         [ { position: 60, importance: #MEDIUM } ],
+          identification:   [ { position: 60 } ] }
+  @EndUserText.label: 'Actual Start Date'
+  actual_start_date;
+  @UI: {  lineItem:         [ { position: 70, importance: #MEDIUM } ],
+          identification:   [ { position: 70 } ] }
+  @EndUserText.label: 'Actual Start Time'
+  actual_start_time;
+  @UI: {  lineItem:         [ { position: 80, importance: #MEDIUM } ],
+          identification:   [ { position: 80 } ] }
+  @EndUserText.label: 'Actual End Date'
+  actual_end_date;
+  @UI: {  lineItem:         [ { position: 90, importance: #MEDIUM } ],
+          identification:   [ { position: 90 } ] }
+  @EndUserText.label: 'Actual End Time'
+  actual_end_time;
+  @UI: {  lineItem:         [ { position: 100, importance: #MEDIUM } ],
+          identification:   [ { position: 100 } ] }
+  @EndUserText.label: 'Work Center'
+  work_center;
+  @UI: {  lineItem:         [ { position: 110, importance: #MEDIUM } ],
+          identification:   [ { position: 110 } ] }
+  @EndUserText.label: 'Operation Number'
+  operation_number;
+  @UI: {  lineItem:         [ { position: 120, importance: #MEDIUM } ],
+          identification:   [ { position: 120 } ] }
+  @EndUserText.label: 'IS Deleted'
+  is_deleted;
+  @UI.hidden: true
+  tenant_id;
+  @UI.hidden: true
+  version;
+  @UI.hidden: true
+  sync_status;
+
+
+}
